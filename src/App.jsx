@@ -24,7 +24,7 @@ const SORT_TYPE = {
   none: '',
 };
 
-function filterGoods(goods, sortBy, reverse) {
+function getFilteredGoods(goods, sortBy, reverse) {
   const sorted = [...goods].sort((itm1, itm2) => {
     switch (sortBy) {
       case SORT_TYPE.alphabet:
@@ -47,7 +47,7 @@ export const App = () => {
   const [reversed, setReversed] = useState(false);
   const [sortBy, setSortBy] = useState(SORT_TYPE.none);
 
-  const goodsToRender = filterGoods(goodsFromServer, sortBy, reversed);
+  const goodsToRender = getFilteredGoods(goodsFromServer, sortBy, reversed);
 
   return (
     <div className="section content">
